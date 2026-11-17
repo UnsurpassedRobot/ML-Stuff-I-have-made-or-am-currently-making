@@ -13,10 +13,15 @@ def ReLU(min, X):
 
 class neuron:
   def __init__(self, leanr_rate, features, activations):
-    self.bias = 0
-    self.weights = [0] * features
+    self.b = 0
+    self.w = [0] * features
     self.l = learn_rate
     self.a = activation
     if self.a == "ReLU":
       self.min = float(input("min value for ReLU"))
+  def forward(self, X):
+    prediction = self.b
+    for i in range(len(self.w)):
+      prediction += X[i] * self.w[i]
+    return prediction
   
