@@ -24,4 +24,7 @@ class neuron:
     for i in range(len(self.w)):
       prediction += X[i] * self.w[i]
     return prediction
-  
+  def update(self, bSlope, wSlopes):
+    self.b -= bSlope * self.l
+    for i in range(len(self.w)):
+      self.w[i] -= wSlopes[i] * self.l 
