@@ -12,7 +12,7 @@ def ReLU(min, X):
   return X
 
 class neuron:
-  def __init__(self, learn_rate, features, activations):
+  def __init__(self, learn_rate, features, activation):
     self.b = 0
     self.w = [0] * features
     self.l = learn_rate
