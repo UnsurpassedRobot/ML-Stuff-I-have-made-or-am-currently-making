@@ -12,7 +12,7 @@ def ReLU(min, X):
   return X
 
 class neuron:
-  def __init__(self, leanr_rate, features, activations):
+  def __init__(self, learn_rate, features, activations):
     self.b = 0
     self.w = [0] * features
     self.l = learn_rate
@@ -23,6 +23,10 @@ class neuron:
     prediction = self.b
     for i in range(len(self.w)):
       prediction += X[i] * self.w[i]
+    if self.a == "sigmoid":
+      prediction = sigmoid(prediction)
+    elif self.a == "ReLU":
+      prediction = ReLU(self.min, prediction)
     return prediction
   def update(self, bSlope, wSlopes):
     self.b -= bSlope * self.l
