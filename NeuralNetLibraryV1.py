@@ -48,7 +48,7 @@ class neuron:
             elif self.a == "ReLU":
                 y = ReLU(0, y)
             return y
-    def update(self, wSlopes=[0], bSlope=0):
+    def update(self, wSlopes, bSlope):
         if self.type == "hidden" or self.type == "output":
             self.b -= self.l * bSlope
         if self.type == "input" or self.type == "hidden":
