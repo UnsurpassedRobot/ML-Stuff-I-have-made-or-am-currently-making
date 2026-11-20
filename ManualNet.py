@@ -26,3 +26,13 @@ def predict(X):
     for i in range(2):
         one.append(input_layer[i].forward(X[i]))
     one = flip(one)
+    two = []
+    for i in range(4):
+        two.append(hidden_layer_1[i].forward(one[i]))
+    two = flip(two)
+    three = []
+    for i in range(4):
+        three.append(hidden_layer_2[i].forward(two[i]))
+    three = flip(three)
+    final = output_layer.forward(three)
+    return final
