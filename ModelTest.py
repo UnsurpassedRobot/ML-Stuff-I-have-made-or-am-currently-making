@@ -1,5 +1,4 @@
 from ModelPrototypesV5 import LogisticRegression
-import math
 
 model = LogisticRegression(10000, 0.1)
 
