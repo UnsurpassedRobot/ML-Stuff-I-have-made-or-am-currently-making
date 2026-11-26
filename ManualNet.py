@@ -35,4 +35,14 @@ def predict(X):
         three.append(hidden_layer_2[i].forward(two[i]))
     three = flip(three)
     final = output_layer.forward(three)
-    return final
+    return one, two, three, final
+
+def train(X, y):
+    for e in range(1000):
+        for i in range(len(X)):
+            one, two, three, prediction = predict(X[i])
+            bSlope = (2 * (prediction - y[i])) * (prediction * (1 - prediction))
+            wSlopes = []
+            for i in range(len(three)):
+                wSlopes.append((2 * (prediction - y[i])) * (prediction * (1 - prediction)) * three[i])
+            output_layer.update(wSlopes, bSlope)
